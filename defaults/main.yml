@@ -1,0 +1,7 @@
+---
+nginx:
+  worker_processes: 1
+  worker_connections: 1024
+  keepalive_timeout: 65
+  server_tokens: "off"
+  servers: []

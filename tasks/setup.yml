@@ -1,0 +1,25 @@
+---
+- name: Make sure the main confs are present
+  sudo: yes
+  template:
+    src: "nginx.conf.j2"
+    dest: "{{ nginx['server_root'] }}/nginx.conf"
+  notify: reload nginx
+
+- name: Make sure the custom confs are present
+  sudo: yes
+  template:
+    src: "{{ item }}.conf.j2"
+    dest: "{{ nginx['server_root'] }}/conf.d/{{ item }}.conf"
+  with_items:
+    - custom
+  notify: reload nginx
+
+- name: Make sure the servers are present
+  sudo: yes
+  template:
+    src: "server.conf.j2"
+    dest: "{{ nginx['server_root'] }}/conf.d/{{ item.server_name }}.conf"
+  with_items: nginx["servers"]
+  notify: reload nginx
+  when: item.server_name is defined

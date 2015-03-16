@@ -1,0 +1,3 @@
+---
+nginx:
+  server_root: /etc/nginx

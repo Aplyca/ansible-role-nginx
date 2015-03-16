@@ -1,0 +1,7 @@
+ # {{ ansible_managed }}
+
+server {
+  {% for setting, value in item|dictsort(true) %}
+    {{ setting }} {{ value }};
+  {% endfor %}
+}
