@@ -28,8 +28,6 @@ http {
     sendfile        on;
     #tcp_nopush     on;
 
-    keepalive_timeout  {{ nginx['keepalive_timeout'] | default('65') }};
-
     #gzip  on;
 
     include /etc/nginx/conf.d/*.conf;

@@ -9,11 +9,10 @@
 - name: Make sure the custom confs are present
   sudo: yes
   template:
-    src: "{{ item }}.conf.j2"
-    dest: "{{ nginx['server_root'] }}/conf.d/{{ item }}.conf"
-  with_items:
-    - custom
+    src: "http.conf.j2"
+    dest: "{{ nginx['server_root'] }}/conf.d/http.conf"
   notify: reload nginx
+  when: nginx["http"] is defined
 
 - name: Make sure the servers are present
   sudo: yes
