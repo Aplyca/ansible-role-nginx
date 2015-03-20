@@ -1,6 +1,4 @@
 ---
-dependencies: []
-
 galaxy_info:
   author: mauricios
   description: Nginx for Debian/Ubuntu.
