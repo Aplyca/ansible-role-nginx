@@ -1,29 +1,27 @@
 ---
 - name: Add the Nginx package repo to apt
-  sudo: yes
+  become: yes
   apt_repository:
     repo: "deb http://nginx.org/packages/ubuntu/ trusty nginx"
     state: present
 
 - name: Add the Nginx src package repo to apt
-  sudo: yes
+  become: yes
   apt_repository:
     repo: "deb-src http://nginx.org/packages/ubuntu/ trusty nginx"
     state: present
 
 - name: Add an Apt signing key for Nginx repo
-  sudo: yes
+  become: yes
   apt_key:
     url: "http://nginx.org/keys/nginx_signing.key"
     state: present
 
 - name: Ensure Nginx is present using apt
-  sudo: yes
+  become: yes
   apt:
     name: nginx
     update_cache: yes
     cache_valid_time: 86400
     state: present
     force: yes
-
-
