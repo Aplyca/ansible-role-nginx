@@ -18,7 +18,7 @@
   become: yes
   template:
     src: "server.conf.j2"
-    dest: "{{ nginx.server_root }}/conf.d/{{ item.server_name }}.conf"
+    dest: "{{ nginx.server_root }}/conf.d/{{ item.name }}.conf"
   with_items: "{{ nginx.servers }}"
   notify: reload nginx
-  when: item.server_name is defined
+  when: item.name is defined
