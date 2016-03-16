@@ -1,13 +1,13 @@
 ---
 - name: reload nginx
-  sudo: yes
+  become: yes
   service:
     name: nginx
     state: reloaded
     enabled: yes
 
 - name: restart nginx
-  sudo: yes
+  become: yes
   service:
     name: nginx
     state: restarted
