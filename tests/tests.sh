@@ -14,4 +14,4 @@ echo "Checking idempotence"
 ansible-playbook -i inventories/local playbooks.yml --connection=local | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)
 
 echo "Running tests"
-ansible-playbook -i inventories/local playbooks.yml --connection=local 
+ansible-playbook -i inventories/local tests/playbooks.yml --connection=local 

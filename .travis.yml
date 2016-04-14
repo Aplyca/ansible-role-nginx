@@ -10,6 +10,10 @@ install:
   # Install Ansible.
   - sudo pip install -r tests/requirements.txt
 
+addons:
+  hosts:
+    - myapp.com
+
 script:
   - tests/tests.sh
 

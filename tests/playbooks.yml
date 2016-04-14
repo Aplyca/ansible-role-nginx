@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+    - name: Test if Nginx is installed and running
+      uri:
+        url: "http://myapp.com"  
