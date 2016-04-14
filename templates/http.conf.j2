@@ -1,4 +1,4 @@
- # {{ ansible_managed }}
+# {{ ansible_managed }}
 
 {% for setting, value in nginx["http"]|dictsort(true) %}
 {{ setting }} {{ value }};
