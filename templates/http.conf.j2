@@ -1,5 +1,5 @@
  # {{ ansible_managed }}
 
 {% for setting, value in nginx["http"]|dictsort(true) %}
-  {{ setting }} {{ value }};
+{{ setting }} {{ value }};
 {% endfor %}
